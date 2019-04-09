@@ -2,7 +2,7 @@
   "name": "hello world",
   "version": "1.0",
   "description": "Hello world",
-  "permissions": ["declarativeContent"],
+  "permissions": ["declarativeContent", "tabs"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -10,5 +10,15 @@
   "page_action": {
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
   "manifest_version": 2
 }
